@@ -1,0 +1,33 @@
+[
+    {
+        "date": "2025-02-13",
+        "actions": [
+            {
+                "op": {
+                    "type": "ADD_INPUT",
+                    "key": "code",
+                    "title": "Code"
+                }
+            },
+            {
+                "op": {
+                    "type": "CHANGE_TITLE",
+                    "key": "code",
+                    "title": "Code!"
+                }
+            }
+        ],
+        "information": [
+            {
+                "code": true
+            }
+        ],
+        "form_before": [],
+        "form_after": [
+            {
+                "key": "code",
+                "title": "Code!"
+            }
+        ]
+    }
+]
