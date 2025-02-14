@@ -1,0 +1,34 @@
+[
+    {
+        "key": "2025-02-13",
+        "type": "operation",
+        "data": {
+            "type": "ADD_INPUT",
+            "key": "code",
+            "title": "Code"
+        }
+    },
+    {
+        "key": "2025-02-13",
+        "type": "information",
+        "data": {
+            "code": true
+        }
+    },
+    {
+        "key": "2025-02-13",
+        "type": "operation",
+        "data": {
+            "type": "CHANGE_TITLE",
+            "key": "code",
+            "title": "Code!"
+        }
+    },
+    {
+        "key": "2025-02-14",
+        "type": "information",
+        "data": {
+            "code": true
+        }
+    }
+]

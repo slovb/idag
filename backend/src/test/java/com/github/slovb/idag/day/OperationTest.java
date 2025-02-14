@@ -18,8 +18,8 @@ public class OperationTest {
 	@DisplayName("Expect polymorphic serialization of Operation")
 	@Tag("OPERATION")
 	public void whenSerializingPolymorphic_thenCorrect() throws JsonProcessingException {
-		Action.AddInput addInput = new Action.AddInput();
-		Action operation = new Action(addInput);
+		OperationEntry.AddInput addInput = new OperationEntry.AddInput();
+		OperationEntry operation = new OperationEntry(addInput);
 
 		String result = new ObjectMapper().writeValueAsString(operation);
 

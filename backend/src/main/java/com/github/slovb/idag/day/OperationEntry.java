@@ -5,16 +5,15 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
-public class Action {
-	// TODO: Unwrap this into base Action, this setup is too convoluted
-	public Op op;
+public class OperationEntry extends Entry {
+	public Op data;
 
-	public Action() {
+	public OperationEntry() {
 	}
 
-	public Action(Op op) {
+	public OperationEntry(Op op) {
 		this();
-		this.op = op;
+		this.data = op;
 	}
 
 	@JsonTypeInfo(
@@ -60,5 +59,10 @@ public class Action {
 			super();
 			this.type = "CHANGE_TITLE";
 		}
+	}
+
+	@Override
+	public String getType() {
+		return "operation";
 	}
 }
