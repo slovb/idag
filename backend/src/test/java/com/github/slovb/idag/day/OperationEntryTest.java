@@ -12,11 +12,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-public class OperationTest {
+public class OperationEntryTest {
 
 	@Test
 	@DisplayName("Expect polymorphic serialization of Operation")
-	@Tag("OPERATION")
+	@Tag("LOCAL")
 	public void whenSerializingPolymorphic_thenCorrect() throws JsonProcessingException {
 		OperationEntry.AddInput addInput = new OperationEntry.AddInput();
 		OperationEntry operation = new OperationEntry(addInput);
