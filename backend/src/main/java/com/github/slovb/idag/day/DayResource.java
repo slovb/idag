@@ -15,10 +15,11 @@ public class DayResource {
 	@Inject
 	private DayStorage dayStorage;
 
-	@Operation(summary="Get all days")
-	@APIResponse(responseCode="200", description="A list of all days")
+	@Operation(summary="Get a specific day")
+	@APIResponse(responseCode="200", description="The state of the requested Day")
+	@Path("{key}")
     @GET
-    public Map<String, Day> list() {
-		return dayStorage.list();
+    public Day get(String key) {
+		return dayStorage.get(key);
     }
 }

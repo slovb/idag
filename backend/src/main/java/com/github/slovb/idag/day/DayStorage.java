@@ -30,8 +30,8 @@ public class DayStorage {
 		}
 	}
 
-	public Map<String, Day> list() {
-		return days;
+	public Day get(String key) {
+		return days.get(key);
 	}
 
 	public void put(Day day) {

@@ -23,18 +23,19 @@ class DayResourceTest {
     @DisplayName("GET, expect to find title \"Code!\"")
     @Tag("GET")
     void testDayEndpoint() {
-    	Response response = given()
-          .when().get("/day")
-          .then()
-          	 .assertThat()
-             .statusCode(HttpStatus.SC_OK)
-             .and()
-             .contentType(ContentType.JSON)
-             .and()
-             .extract()
-             .response();
+    	Response response = given().
+          when().
+          	get("/day/{key}", "2025-02-13").
+          then().
+          	 assertThat().
+             statusCode(HttpStatus.SC_OK).
+             and().
+             contentType(ContentType.JSON).
+             and().
+             extract().
+             response();
 
-    	ArrayList<String> titles = response.path("2025-02-13.form_after.title");
+    	ArrayList<String> titles = response.path("form_after.title");
 
     	assertThat(titles, contains("Code!"));
     }
