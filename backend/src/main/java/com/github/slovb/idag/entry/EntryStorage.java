@@ -31,11 +31,29 @@ public class EntryStorage {
 		}
 	}
 
+	/**
+	 * List all the entries ordered by <code>(key, index)</code> ascending
+	 *
+	 * @return
+	 */
 	public List<Entry> list() {
 		return entries;
 	}
-	
+
+	/**
+	 * Add Entry as late in the list as possible without putting it ahead of one with a greater key
+	 *
+	 * This ordering is needed so that operations are iterated through in the intended order
+	 *
+	 * @param entry
+	 */
 	public void add(Entry entry) {
-		entries.add(entry);
+		// TODO write tests for this ordering
+		int i = entries.size();
+		while (i > 0 && entry.key.compareTo(entries.get(i-1).key) < 0) {
+			i -= 1;
+		}
+
+		entries.add(i, entry);
 	}
 }
