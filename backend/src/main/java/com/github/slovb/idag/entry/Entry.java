@@ -20,4 +20,20 @@ abstract public class Entry {
 	}
 
 	abstract public String getType();
+
+	public boolean isStrictlyAfter(String key) {
+		return this.key.compareTo(key) > 0;
+	}
+
+	public boolean isStrictlyAfter(Entry entry) {
+		return isStrictlyAfter(entry.key);
+	}
+
+	public boolean isStrictlyBefore(String key) {
+		return this.key.compareTo(key) < 0;
+	}
+
+	public boolean isStrictlyBefore(Entry entry) {
+		return isStrictlyBefore(entry.key);
+	}
 }

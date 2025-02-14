@@ -50,7 +50,7 @@ public class EntryStorage {
 	public void add(Entry entry) {
 		// TODO write tests for this ordering
 		int i = entries.size();
-		while (i > 0 && entry.key.compareTo(entries.get(i-1).key) < 0) {
+		while (i > 0 && entry.isStrictlyBefore(entries.get(i-1))) {
 			i -= 1;
 		}
 
