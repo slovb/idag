@@ -19,7 +19,9 @@
         ],
         "information": [
             {
-                "code": true
+                "info": {
+                    "code": true
+                }
             }
         ],
         "form_before": [],

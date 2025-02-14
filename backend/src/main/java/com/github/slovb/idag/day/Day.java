@@ -1,7 +1,9 @@
 package com.github.slovb.idag.day;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -26,10 +28,10 @@ public class Day {
 	 *
 	 * @return the union of information in list order
 	 */
-	public Information getSnapshot() {
-		Information snapshot = new Information();
-		for (Information info: information) {
-			snapshot.putAll(info);
+	public Map<String, Boolean> getSnapshot() {
+		Map<String, Boolean> snapshot = new LinkedHashMap<String, Boolean>();
+		for (Information information: information) {
+			snapshot.putAll(information.info);
 		}
 		return snapshot;
 	}

@@ -1,9 +1,12 @@
 package com.github.slovb.idag.day;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-public class Information extends HashMap<String, Boolean>{
+public class Information {
 
-	private static final long serialVersionUID = -1647039215044896891L;
+	public Map<String, Boolean> info = new LinkedHashMap<String, Boolean>();
 
+	public Information() {
+	}
 }
