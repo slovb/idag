@@ -1,7 +1,5 @@
 package com.github.slovb.idag.day;
 
-import java.util.Map;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
