@@ -8,13 +8,15 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.github.slovb.idag.entry.InformationEntry;
+import com.github.slovb.idag.entry.OperationEntry;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Day {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date date;
-	public List<OperationEntry> actions;
+	public List<OperationEntry> operations;
 	public List<InformationEntry> information;
 	public List<Form> formBefore;
 	public List<Form> formAfter;

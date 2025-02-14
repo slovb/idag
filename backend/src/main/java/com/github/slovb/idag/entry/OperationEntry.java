@@ -1,10 +1,11 @@
-package com.github.slovb.idag.day;
+package com.github.slovb.idag.entry;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
+@JsonTypeName("operation")
 public class OperationEntry extends Entry {
 	public Op data;
 

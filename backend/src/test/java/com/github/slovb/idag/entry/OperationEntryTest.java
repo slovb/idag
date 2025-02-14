@@ -1,4 +1,4 @@
-package com.github.slovb.idag.day;
+package com.github.slovb.idag.entry;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;

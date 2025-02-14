@@ -5,15 +5,20 @@ import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.slovb.idag.entry.EntryStorage;
 
 import io.quarkus.logging.Log;
+import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @Singleton
 public class DayStorage {
 
-	// Set to package-private to avoid reflection on injection
+	// Set to package-private to avoid reflection on injection (TODO read up on the details of this)
 	Map<String, Day> days = new LinkedHashMap<String, Day>();
+
+	@Inject
+	EntryStorage entryStorage;
 
 	public DayStorage() {
 		try (InputStream in = getClass().getResourceAsStream("/initial.json")) {

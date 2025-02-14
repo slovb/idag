@@ -1,9 +1,10 @@
 [
     {
         "date": "2025-02-13",
-        "actions": [
+        "operations": [
             {
                 "key": "2025-02-13",
+                "type": "operation",
                 "data": {
                     "type": "ADD_INPUT",
                     "key": "code",
@@ -12,6 +13,7 @@
             },
             {
                 "key": "2025-02-13",
+                "type": "operation",
                 "data": {
                     "type": "CHANGE_TITLE",
                     "key": "code",
@@ -22,6 +24,7 @@
         "information": [
             {
                 "key": "2025-02-13",
+                "type": "information",
                 "data": {
                     "code": true
                 }
