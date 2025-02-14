@@ -3,6 +3,7 @@ package com.github.slovb.idag.entry;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.github.slovb.idag.day.Form;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 @JsonTypeName("operation")
@@ -17,6 +18,10 @@ public class OperationEntry extends Entry {
 		this.data = op;
 	}
 
+	public void operate(Form form) {
+		data.operate(form);
+	}
+
 	@JsonTypeInfo(
 		use = JsonTypeInfo.Id.NAME,
 		include = As.PROPERTY,
@@ -26,9 +31,11 @@ public class OperationEntry extends Entry {
 		@JsonSubTypes.Type(value = RemoveInput.class, name = "REMOVE_INPUT"),
 		@JsonSubTypes.Type(value = ChangeTitle.class, name = "CHANGE_TITLE")
 	})
-	public static class Op {
+	abstract public static class Op {
 		public String type;
 		public String key;
+
+		abstract public void operate(Form form);
 	}
 
 	@JsonTypeName("ADD_INPUT")
@@ -40,6 +47,10 @@ public class OperationEntry extends Entry {
 			super();
 			this.type = "ADD_INPUT";
 		}
+
+		public void operate(Form form) {
+			form.add(key, title);
+		}
 	}
 
 	@JsonTypeName("REMOVE_INPUT")
@@ -49,9 +60,13 @@ public class OperationEntry extends Entry {
 			super();
 			this.type = "REMOVE_INPUT";
 		}
+
+		public void operate(Form form) {
+			form.remove(key);
+		}
 	}
 
-	@JsonTypeName("ADD_INPUT")
+	@JsonTypeName("CHANGE_TITLE")
 	public static class ChangeTitle extends Op {
 		public String title;
 
@@ -59,6 +74,10 @@ public class OperationEntry extends Entry {
 		public ChangeTitle() {
 			super();
 			this.type = "CHANGE_TITLE";
+		}
+
+		public void operate(Form form) {
+			form.changeTitle(key, title);
 		}
 	}
 
