@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.slovb.idag.form.operation.AddInputOperation;
+
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
@@ -18,10 +20,10 @@ public class OperationEntryTest {
 	@DisplayName("Expect polymorphic serialization of Operation")
 	@Tag("LOCAL")
 	public void whenSerializingPolymorphic_thenCorrect() throws JsonProcessingException {
-		OperationEntry.AddInput addInput = new OperationEntry.AddInput();
-		OperationEntry operation = new OperationEntry(addInput);
+		AddInputOperation operation = new AddInputOperation();
+		OperationEntry entry = new OperationEntry(operation);
 
-		String result = new ObjectMapper().writeValueAsString(operation);
+		String result = new ObjectMapper().writeValueAsString(entry);
 
 		assertThat(result, containsString("type"));
 		assertThat(result, containsString("ADD_INPUT"));

@@ -3,11 +3,15 @@ package com.github.slovb.idag.form;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * A list of inputs and API methods for operating on the list
  */
+@JsonSerialize(using = FormSerializer.class)
 public class Form {
 
+	// mostly hiding this to try to play with a custom serializer
 	protected List<Input> inputs = new ArrayList<Input>();
 
 	public Form() {
@@ -35,7 +39,8 @@ public class Form {
 		input.label = label;
 		this.add(input);
 	}
-	
+
+	// specifically not naming this getInputs so that it won't naively serialize
 	public List<Input> list() {
 		return inputs;
 	}

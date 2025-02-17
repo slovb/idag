@@ -35,7 +35,7 @@ class DayResourceTest {
              extract().
              response();
 
-    	ArrayList<String> labels = response.path("form_after.rows.label");
+    	ArrayList<String> labels = response.path("form_after.inputs.label");
 
     	assertThat(labels, contains("Code!"));
     }
