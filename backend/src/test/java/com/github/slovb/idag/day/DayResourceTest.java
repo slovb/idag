@@ -20,7 +20,7 @@ import org.apache.http.HttpStatus;
 @QuarkusTest
 class DayResourceTest {
     @Test
-    @DisplayName("GET, expect to find title \"Code!\"")
+    @DisplayName("GET, expect to find label \"Code!\"")
     @Tag("GET")
     void testDayEndpoint() {
     	Response response = given().
@@ -35,9 +35,9 @@ class DayResourceTest {
              extract().
              response();
 
-    	ArrayList<String> titles = response.path("form_after.rows.title");
+    	ArrayList<String> labels = response.path("form_after.rows.label");
 
-    	assertThat(titles, contains("Code!"));
+    	assertThat(labels, contains("Code!"));
     }
 
 }

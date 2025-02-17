@@ -5,7 +5,7 @@
         "data": {
             "type": "ADD_INPUT",
             "key": "code",
-            "title": "Code"
+            "label": "Code"
         }
     },
     {
@@ -19,9 +19,9 @@
         "key": "2025-02-13",
         "type": "operation",
         "data": {
-            "type": "CHANGE_TITLE",
+            "type": "SET_LABEL",
             "key": "code",
-            "title": "Code!"
+            "label": "Code!"
         }
     },
     {

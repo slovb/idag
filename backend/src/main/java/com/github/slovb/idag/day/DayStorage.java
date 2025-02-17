@@ -6,7 +6,7 @@ import com.github.slovb.idag.entry.Entry;
 import com.github.slovb.idag.entry.EntryStorage;
 import com.github.slovb.idag.entry.InformationEntry;
 import com.github.slovb.idag.entry.OperationEntry;
-
+import com.github.slovb.idag.form.Form;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
@@ -53,13 +53,7 @@ public class DayStorage {
 			}
 		}
 
-		day.formAfter = new Form();
-		for (Row row: day.formBefore.rows) {
-			Row hardCopy = new Row();
-			hardCopy.key = row.key;
-			hardCopy.title = row.title;
-			day.formAfter.rows.add(hardCopy);
-		}
+		day.formAfter = new Form(day.formBefore);
 		for (OperationEntry entry: day.operations) {
 			entry.operate(day.formAfter);
 		}

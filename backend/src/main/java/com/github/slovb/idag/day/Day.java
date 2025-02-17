@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.slovb.idag.entry.InformationEntry;
 import com.github.slovb.idag.entry.OperationEntry;
+import com.github.slovb.idag.form.Form;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Day {

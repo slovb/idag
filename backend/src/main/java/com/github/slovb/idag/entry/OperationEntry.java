@@ -2,8 +2,8 @@ package com.github.slovb.idag.entry;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.github.slovb.idag.form.Form;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.github.slovb.idag.day.Form;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 @JsonTypeName("operation")
@@ -29,7 +29,7 @@ public class OperationEntry extends Entry {
 	@JsonSubTypes({
 		@JsonSubTypes.Type(value = AddInput.class, name = "ADD_INPUT"),
 		@JsonSubTypes.Type(value = RemoveInput.class, name = "REMOVE_INPUT"),
-		@JsonSubTypes.Type(value = ChangeTitle.class, name = "CHANGE_TITLE")
+		@JsonSubTypes.Type(value = SetLabel.class, name = "SET_LABEL")
 	})
 	abstract public static class Op {
 		public String type;
@@ -40,7 +40,7 @@ public class OperationEntry extends Entry {
 
 	@JsonTypeName("ADD_INPUT")
 	public static class AddInput extends Op {
-		public String title;
+		public String label;
 
 		// TODO: Having to do this seems wrong and redundant, read the friendly manual!
 		public AddInput() {
@@ -49,7 +49,7 @@ public class OperationEntry extends Entry {
 		}
 
 		public void operate(Form form) {
-			form.add(key, title);
+			form.add(key, label);
 		}
 	}
 
@@ -66,18 +66,18 @@ public class OperationEntry extends Entry {
 		}
 	}
 
-	@JsonTypeName("CHANGE_TITLE")
-	public static class ChangeTitle extends Op {
-		public String title;
+	@JsonTypeName("SET_LABEL")
+	public static class SetLabel extends Op {
+		public String label;
 
 		// TODO: Having to do this seems wrong and redundant, read the friendly manual!
-		public ChangeTitle() {
+		public SetLabel() {
 			super();
-			this.type = "CHANGE_TITLE";
+			this.type = "SET_LABEL";
 		}
 
 		public void operate(Form form) {
-			form.changeTitle(key, title);
+			form.setLabel(key, label);
 		}
 	}
 
