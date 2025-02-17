@@ -13,7 +13,6 @@ import jakarta.inject.Singleton;
 @Singleton
 public class EntryStorage {
 
-	// Set to package-private to avoid reflection on injection (TODO read up on the details of this)
 	List<Entry> entries = new ArrayList<Entry>();
 
 	public EntryStorage() {
@@ -48,7 +47,6 @@ public class EntryStorage {
 	 * @param entry
 	 */
 	public void add(Entry entry) {
-		// TODO write tests for this ordering
 		int i = entries.size();
 		while (i > 0 && entry.isStrictlyBefore(entries.get(i-1))) {
 			i -= 1;
